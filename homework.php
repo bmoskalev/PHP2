@@ -1,25 +1,94 @@
 <?php
-// Задание 1
-// Можно создать класс описывающий сущность обувь.
-// Задаине 2
-// У этого класса можно определить следующие свойства размер, вес, материал из которого изготовлена, цена,
-// количество на складе, производитель, артикул.
-// Задаине 3
-// Для каждого свойства можно добавить методы геттер и сеттер, с помощью которых можно задавать или получать
-// значения этих свойств.
-// Задание 4
-// Наследниками класса обувь можно сделать конкретные виды обуви будь то сапоги кроссовки ботинки.
-// Они будут отличаться от родительского класса наличием дополнительных свойств как то длинна молнии, количество дырок
-// под шнурки, длина используемых шнурков, предназначение конкретной обуви (например кроссовки для игры,
-// для бега, для походов)
+// Задание 1-4
+// Класс описывающий сущность обувь.
+class Shoes
+{
+    private $id; //артикул
+    private $brand; //бренд
+    private $size; //размер
+    private $weight; //вес
+    private $count; //количество
+
+    public function __construct($id, $brand, $size, $weight, $count)
+    {
+        $this->id = $id;
+        $this->brand = $brand;
+        $this->size = $size;
+        $this->weight = $weight;
+        $this->count = $count;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+    }
+
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    public function setSize($size)
+    {
+        $this->size = $size;
+    }
+
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    public function setId($count)
+    {
+        $this->count = $count;
+    }
+
+    public function getCount()
+    {
+        return $this->count;
+    }
+}
+
+class Boots extends Shoes{
+    private $type;
+    public function __construct($id, $brand, $size, $weight, $count, $type)
+    {
+        parent::__construct($id, $brand, $size, $weight, $count);
+        $this->type=$type;
+    }
+}
+
 
 //Задание 5
-class A {
-    public function foo() {
+class A
+{
+    public function foo()
+    {
         static $x = 0;
         echo ++$x;
     }
 }
+
 $a1 = new A();
 $a2 = new A();
 $a1->foo(); //1
@@ -31,14 +100,19 @@ $a2->foo(); //4
 //
 
 //Задание 6
-class A {
-    public function foo() {
+class A
+{
+    public function foo()
+    {
         static $x = 0;
         echo ++$x;
     }
 }
-class B extends A {
+
+class B extends A
+{
 }
+
 $a1 = new A();
 $b1 = new B();
 $a1->foo(); //1
@@ -52,14 +126,19 @@ $b1->foo(); //2
 //
 
 //Задание 7
-class A {
-    public function foo() {
+class A
+{
+    public function foo()
+    {
         static $x = 0;
         echo ++$x;
     }
 }
-class B extends A {
+
+class B extends A
+{
 }
+
 $a1 = new A;
 $b1 = new B;
 $a1->foo(); //1
