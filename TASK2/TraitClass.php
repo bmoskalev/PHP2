@@ -1,7 +1,7 @@
 <?php
 include "trait.php";
 
-class someClass
+class TraitClass
 {
     protected static $_instance;
 
