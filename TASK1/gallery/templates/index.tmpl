@@ -13,8 +13,8 @@
 
 <div class="images">
     {% for image in images %}
-        <a href="image.php?photo={{ image }}">
-            <img src="{{ path }}{{ image }}">
+        <a href="image.php?photo={{ image.fileName }}">
+            <img src="{{ image.smallPath }}{{ image.fileName }}">
         </a>
     {% endfor %}
 </div>

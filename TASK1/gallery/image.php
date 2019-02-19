@@ -18,7 +18,7 @@ try {
 
     // передаём в шаблон переменные и значения
     // выводим сформированное содержание
-    $photo = PHOTO.$_GET['photo'];
+    $photo = PHOTO_BIG.$_GET['photo'];
     $content = $template->render(array(
         'photo' => $photo,
     ));
@@ -27,4 +27,3 @@ try {
 } catch (Exception $e) {
     die ('ERROR: ' . $e->getMessage());
 }
-?>
