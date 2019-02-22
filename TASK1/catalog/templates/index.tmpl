@@ -31,9 +31,9 @@
                 type: 'POST',
                 url: 'models/catalog.ajax.php',
                 data: {ITEMS: items},
+                dataType: "html",
                 success: function (data) {
-                    let result = JSON.parse(data);
-                    $('.items').append(result.html);
+                    $('.items').append(data);
                 }
             });
         });
