@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Работа с ajax</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Каталог товаров</h1>
+</header>
+
+
+<div class="items">
+    {{ content | raw }}
+</div>
+
+<a id="showMore" href="#" data-items=25>Show more</a>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+
+</script>
+<script>
+    $(function(){
+        $('#showMore').click(function (e) {
+            e.preventDefault();
+            let items = $('.items .item').last().attr('data-id');
+            $.ajax({
+                type: 'POST',
+                url: 'models/catalog.ajax.php',
+                data: {ITEMS: items},
+                dataType: "json",
+                success: function (data) {
+                    let result = JSON.parse(data);
+                    $('.items').append(result.html);                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
+
