@@ -31,13 +31,14 @@
                 type: 'POST',
                 url: 'models/catalog.ajax.php',
                 data: {ITEMS: items},
-                dataType: "html",
+                dataType: "json",
                 success: function (data) {
-                    $('.items').append(data);
-                }
+                    let result = JSON.parse(data);
+                    $('.items').append(result.html);                }
             });
         });
     });
 </script>
 </body>
 </html>
+
